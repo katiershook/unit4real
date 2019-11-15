@@ -6,9 +6,17 @@ class Phrase {
         this.phrase = phrase.toLowerCase();
     }
    
-    addPhrasetoDisplay() {
-       const ul = document.querySelector('#phrase ul');
-       phrase = game.getRandomPhrase();
-        splitArray = this.phrase.split('')
-    };
+    addPhraseToDisplay() {
+        //phrase = game.getRandomPhrase();
+         const li = document.createElement('li');
+       let  splitArray = this.phrase.split('');
+        const ul = $('#phrase ul').append('Phrase ul');
+        ul.append('li');
+   
+        console.log(splitArray);
+    }
+
+  
+
+ 
 }

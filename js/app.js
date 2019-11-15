@@ -1,12 +1,19 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-const startButton = document.getElementById
-('btn__reset')
-startButton.addEventListener('click',function() {
  
- // game.startGame(); 
-});
+  const startButton = document.getElementById
+  ('btn__reset')
+  startButton.addEventListener('click',function() {
+ 
+ 
+ //game.startGame(); 
+
+ const game = new Game();
+ game.getRandomPhrase().addPhraseToDisplay();
+
+
+ })
 
 //const game = new Game();
 
@@ -14,7 +21,7 @@ startButton.addEventListener('click',function() {
 //console.log(`Phrase - phrase: ${phrase.phrase}`);
 
 
-
+console.log('ok boomer');
 
 // const logPhrase = (phrase) => {
 //     console.log(`Phrase - phrase: `, phrase.phrase);
@@ -31,6 +38,3 @@ startButton.addEventListener('click',function() {
 //game.phrases.forEach((phrase, index) => {
 //console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
 //});
-
-const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();
