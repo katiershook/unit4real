@@ -2,13 +2,14 @@
  * Project 4 - OOP Game App
  * Game.js */
 
- 
+ // creates the game class
 class Game  {
     constructor() {
         this.missed = 0;
         this.phrases = this.createPhrases();
-        this.activePhrase = null ;
-    }
+        this.activePhrase = null;
+    } 
+    // creates the createPhrases method to create an array of phrases.
     createPhrases() {
         const phrasesArray = [
          new Phrase("dunder mifflin paper co "), 
@@ -20,7 +21,8 @@ class Game  {
       
          return phrasesArray;
        } 
-       
+       // creates getRandomPhrase method by going through the phrasesArray 
+       // and picking a random one. 
        getRandomPhrase() {
         let i = Math.floor(Math.random() * this.phrases.length);
         console.log(i);
@@ -28,14 +30,14 @@ class Game  {
         return randomPhrase;
 
         
-    }
+    };
     
     
-    //    resetDisplay(){
-    //     $('#overlay').hide();
-    //     $('#phrase li').remove();
-    //     $('.key').prop("className", "key").css("background", "#D2D2D2");
-    //     $('.tries').show();
-    }
-   
-      
+    startGame(){ // get the overlay element and hides it.
+    const hideOverlay =  document.getElementById('overlay').style.display = 'none';
+    // this says this.activePhrase from the game constrcutor will be = this.randomPhrase
+      this.activePhrase = this.randomPhrase();
+       
+
+};
+}

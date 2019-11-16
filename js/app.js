@@ -3,7 +3,7 @@
  * app.js */
  
   const startButton = document.getElementById
-  ('btn__reset')
+  ('btn__reset');
   startButton.addEventListener('click',function() {
  
  
@@ -13,7 +13,7 @@
  game.getRandomPhrase().addPhraseToDisplay();
 
 
- })
+ 
 
 //const game = new Game();
 
@@ -34,7 +34,8 @@ console.log('ok boomer');
 //     logPhrase(game.getRandomPhrase());
 
 
-   // const game = new Game();
-//game.phrases.forEach((phrase, index) => {
-//console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-//});
+
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+
+  });
