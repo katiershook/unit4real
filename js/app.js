@@ -21,7 +21,7 @@
 //console.log(`Phrase - phrase: ${phrase.phrase}`);
 
 
-console.log('ok boomer');
+console.log('ok');
 
 // const logPhrase = (phrase) => {
 //     console.log(`Phrase - phrase: `, phrase.phrase);

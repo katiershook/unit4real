@@ -35,8 +35,10 @@ class Game  {
     
     startGame(){ // get the overlay element and hides it.
     const hideOverlay =  document.getElementById('overlay').style.display = 'none';
-    // this says this.activePhrase from the game constrcutor will be = this.randomPhrase
-      this.activePhrase = this.randomPhrase();
+    // this tells the game construct that getRandomPhrase will be used to for getting the random phrase
+      this.activePhrase = this.getRandomPhrase();
+      // this 
+     this.activePhrase.addPhraseToDisplay();
        
 
 };
