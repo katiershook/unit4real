@@ -31,12 +31,11 @@ class Game  {
     }
     
     
-       resetDisplay(){
-        $('#overlay').hide();
-        $('#phrase li').remove();
-        $('.key').prop("className", "key").css("background", "#D2D2D2");
-        $('.tries').show();
+    //    resetDisplay(){
+    //     $('#overlay').hide();
+    //     $('#phrase li').remove();
+    //     $('.key').prop("className", "key").css("background", "#D2D2D2");
+    //     $('.tries').show();
     }
    
       
-}
