@@ -24,9 +24,9 @@ class Game  {
        // creates getRandomPhrase method by going through the phrasesArray 
        // and picking a random one. 
        getRandomPhrase() {
-        let i = Math.floor(Math.random() * this.phrases.length);
-        console.log(i);
-        let randomPhrase = this.phrases[i];
+        let x = Math.floor(Math.random() * this.phrases.length);
+        console.log(x);
+        let randomPhrase = this.phrases[x];
         return randomPhrase;
 
         
