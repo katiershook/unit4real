@@ -46,28 +46,31 @@ class Phrase {
             // if the letter selected is included in the phrase, reveal the letter on the board
            if(checkLetter){
             // returns the checkLetter
-             $(splitArray).each(i, val) 
+             $(splitArray).each(); 
+
              {
              showMatchedLetter(letter)
             }
            return checkLetter;
                }
-    
+   
 
            }
         
-           showMatchedLetter(letter){
-          
-          if (letter === checkLetter){ 
-          $().each(index, value) 
-         
-        $(this).addClass('show'); 
-       $(this).removeClass('hide'); 
-
+           showMatchedLetter(letter){ // gets the value of the active phrase by using class.
+            let  matchedLetters = $('.letter').val();
+            $.each(matchedLetters, function(){// goes through  each individual letter
+                if(letter === matchedLetters.html()){ // checks for match against the selected letters inner html
+                    $(this).addClass('show'); // creates a class to show 
+                    $(this).removeClass('hide');// removes a class that hides 
+                    
+                } return matchedLetters;
+            } 
+            )
+        }
+    }
+        
             
-               }
-             }
-             }
             
     
     
