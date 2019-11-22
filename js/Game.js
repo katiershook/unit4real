@@ -48,7 +48,45 @@ class Game  {
     
     
     
-    // checkForWin();
+       checkForWin(){ // checks that the active phrase is correctly  guessed.
+        // create two variables and compare them. one for the letter.length and show.length
 
-    //gameOver();
+       const correctPhrase = $('.letter').length; // length of the phrase
+       const guessedLetters = $('.show').length; { /// length of the guessed letters 
+        if (correctPhrase === guessedLetters){ // compares the two
+        return true 
+       } else {
+           return false 
+        }
+    }
 }
+    removeLife(){//
+  
+   this.missed += 1 // missed counter
+   const lives = $('#images/liveHeart.png'); // live heart image
+
+  for ( let i = 0; i< this.missed; i++){ // loopy loop for each guess
+      if (this.missed < 0)// if the incorrect guess is more than one 
+     $(lives).addClass('remove');// remove the image of live heart
+     
+    
+  }
+  // if (this.missed === 5 ){
+           //return gameOver
+       }
+   }
+
+  
+
+  //}
+
+     
+    
+
+
+
+
+    
+    //gameOver();
+
+    
