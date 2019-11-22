@@ -41,36 +41,57 @@ class Phrase {
     }
     }
 
-        checkLetter(letter) { // create variable to check the phrase for letters
-            const checkLetter = this.phrase.includes(letter)
+
+    //checkLetter(letter) {
+     //   const checkLetter = this.phrase.includes(letter);
+      //  return checkLetter;
+     //  }
+        // checkLetter(letter) { // create variable to check the phrase for letters
+         //   const checkLetter = this.phrase.includes(letter)
             // if the letter selected is included in the phrase, reveal the letter on the board
-           if(checkLetter){
-            // returns the checkLetter
-             $(splitArray).each(); 
+          // if(checkLetter){
+        //    returns the checkLetter
+          //  $(splitArray).each(); 
 
-             {
-             showMatchedLetter(letter)
-            }
-           return checkLetter;
-               }
-   
+          // {
+            //showMatchedLetter(letter)
+            // }
+            
+      //   return checkLetter;
+      checkLetter(letter) { // create variable to check the phrase for letters
+       
+        let splitArray = this.phrase.split('');
+         const checkLetter = this.phrase.includes(letter);
+        // if the letter selected is included in the phrase, reveal the letter on the board
+       if(checkLetter){
+        // returns the checkLetter
+         $(splitArray).each(i, val ) 
+         {
+         showMatchedLetter(letter);
+        }
+      return checkLetter
+         }}
 
-           }
+           
         
-           showMatchedLetter(letter){ // gets the value of the active phrase by using class.
-            let  matchedLetters = $('.letter').val();
-            $.each(matchedLetters, function(){// goes through  each individual letter
-                if(letter === matchedLetters.html()){ // checks for match against the selected letters inner html
-                    $(this).addClass('show'); // creates a class to show 
-                    $(this).removeClass('hide');// removes a class that hides 
-                    
-                } return matchedLetters;
+           showMatchedLetter(letter){
+         // gets the value of the active phrase by using class.
+            let  matchedLetters = document.querySelectorAll(".letter")
+           $.each(matchedLetters, function(i, value ){// goes through  each individual letter
+       
+            if( letter === matchedLetters[i].innerText){ // checks for match against the selected letters inner html
+                    $(matchedLetters[i]).addClass("show") // creates a class to show 
+                  //  $(this).removeClass('hide');// removes a class that hides 
+          
+                }
             } 
             )
-        }
-    }
         
-            
+           }
+        
+    
+        
+        }
             
     
     
