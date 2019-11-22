@@ -5,6 +5,7 @@
 
 
 
+
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
@@ -63,14 +64,14 @@ class Phrase {
         let splitArray = this.phrase.split('');
          const checkLetter = this.phrase.includes(letter);
         // if the letter selected is included in the phrase, reveal the letter on the board
-       if(checkLetter){
+       //if(checkLetter){
         // returns the checkLetter
-         $(splitArray).each(i, val ) 
-         {
-         showMatchedLetter(letter);
-        }
-      return checkLetter
-         }}
+      //  $(splitArray).each(i, val ) 
+        // {
+        // showMatchedLetter(letter);
+        //}
+      return checkLetter;
+         }
 
            
         
@@ -93,17 +94,3 @@ class Phrase {
         
         }
             
-    
-    
-        
- 
-
-     
-  
-
-   
-
-
-
-
-
