@@ -1,8 +1,4 @@
-//
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
-// creates the game class
+
 class Game {
 	constructor() {
 		this.missed = 0;
@@ -44,7 +40,7 @@ class Game {
 			if (correctPhrase === guessedLetters)
 				//{ // compares the two
 				return true;
-		}
+		}  
 	}
 	
 	removeLife() {
@@ -60,10 +56,10 @@ class Game {
 	gameOver(gameWon) {
 		const overlay = $('#overlay').show(); // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
-		if (gameWon === true) { // if the game is won
+		if(game.checkForWin()){ // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
 			$(overlay).addClass('win'); // add the class of win
-		} else {
+		} else { 
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
 			//gameOverScreen.textContent = "try again dude";
 			$(overlay).addClass('lose');// add  class lose
@@ -78,8 +74,9 @@ class Game {
 		} else {
 			$(button.target).addClass('chosen'); // adds chosen class
 			$(button.target).attr('disabled', true); // disables the clicked button
-			game.activePhrase.showMatchedLetter(); // calls the showMatchedLetter function
-			game.checkForWin() // checks for win
+			game.activePhrase.showMatchedLetter($(button.target).text() ); // calls the showMatchedLetter function
+            game.checkForWin();
+            //game.gameOver(); // checks for win
 		}
 	}
 }

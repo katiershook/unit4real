@@ -23,11 +23,12 @@ class Phrase {
 		}
 	}
 	checkLetter(letter) { // create variable to check the phrase for letters
-		// let splitArray = this.phrase.split('');
-		const checkLetter = this.phrase.includes(letter);
-		 {
+		 let splitArray = this.phrase.split('');
+    const checkLetter = this.phrase.includes(letter);
+    //showMatchedLetter();
+		 
 		
-		}
+		
 		return checkLetter;
 	}
 	showMatchedLetter(letter) {
@@ -36,7 +37,9 @@ class Phrase {
 		$.each(matchedLetters, function(i, value) { // goes through  each individual letter
 			if (letter === matchedLetters[i].innerText) { // checks for match against the selected letters inner html
 				$(matchedLetters[i]).addClass('show') // creates a class to show 
-				$(this).addClass('hide'); // removes a class that hides 
+       // $(this).addClass('hide');
+       // game.gameOver(true); 
+       // game.checkForWin();// removes a class that hides 
 			}
 		})
 	}
