@@ -1,6 +1,4 @@
-
-
-  //
+//
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
@@ -43,35 +41,45 @@ class Game {
 		// create two variables and compare them. one for the letter.length and show.length
 		const correctPhrase = $('.letter').length; // length of the phrase
 		const guessedLetters = $('.show').length; { /// length of the guessed letters 
-			if (correctPhrase === guessedLetters) { // compares the two
-				return true
-			} else {
-				return false
-			}
+			if (correctPhrase === guessedLetters)
+				//{ // compares the two
+				return true;
 		}
 	}
-	// grab the heart images by class
-	// if a guess is incorrect use addClass to remove a heart. 
-	// if the incorrect guessed are 5 the game will be over 
+	
 	removeLife() {
-		this.missed ++
+		this.missed += 1; // counter
 		const lives = $('.tries img'); // selects the images from the tries class
-	 {
-			lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subracts one
+		{
+			lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subtract one. Shoutout to ernie the dog on this one ahha.
 		}
-		    if(this.missed === 5) { /// if there are 5 incorrect guess 
-			gameOver(); // trigger the game over function
-		} 
+		if (this.missed === 5) { /// if there are 5 incorrect guess 
+			this.gameOver('astring'); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
+		}
 	}
 	gameOver(gameWon) {
-		const overlay = $('#overlay');
-		const gameOverScreen = $('#game-over-message');
-		if (gameWon === true) {
-			gameOverScreen.textContent = "winner winner chicken dinner";
-			$(overlay).addClass('win');
+		const overlay = $('#overlay').show(); // variable to show the overlay when called
+		const gameOverScreen = $('#game-over-message'); // game over message variable
+		if (gameWon === true) { // if the game is won
+			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
+			$(overlay).addClass('win'); // add the class of win
 		} else {
-			gameOverScreen.textContent = "try again dude";
-			$(overlay).addClass('lose');
+			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
+			//gameOverScreen.textContent = "try again dude";
+			$(overlay).addClass('lose');// add  class lose
+		}
+	}
+	handleInteraction(button) {
+		const clickedLetter = game.activePhrase.checkLetter($(button.target).text()) // text content of the letter clicked in checkLetter
+		if (!clickedLetter) { // if checkletter is not true
+			$(button.target).addClass('wrong') // adds class wront to the selected button
+			game.removeLife(); // removes a life
+			$(button.target).attr('disabled', true); // disables the button clicked
+		} else {
+			$(button.target).addClass('chosen'); // adds chosen class
+			$(button.target).attr('disabled', true); // disables the clicked button
+			game.activePhrase.showMatchedLetter(); // calls the showMatchedLetter function
+			game.checkForWin() // checks for win
 		}
 	}
 }
