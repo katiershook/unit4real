@@ -7,7 +7,7 @@
   const start = $('#btn__reset').click(function() {// event listener m the start button
  
     game.startGame();
-    //game.resetGame();
+   // game.resetGame();
   });
   
 

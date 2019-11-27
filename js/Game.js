@@ -39,7 +39,7 @@ class Game {
 		const guessedLetters = $('.show').length; { /// length of the guessed letters 
 			if (correctPhrase === guessedLetters)
                 //{ // compares the two
-               { this.gameOver(true)}
+               { this.gameOver()}
 				return true;
 		}  
 	}
@@ -51,19 +51,19 @@ class Game {
 			lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subtract one. Shoutout to ernie the dog on this one ahha.
 		}
 		if (this.missed === 5) { /// if there are 5 incorrect guess 
-			this.gameOver('astring'); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
+			this.gameOver(true); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
 		}
 	}
 	gameOver(gameWon) {
 		const overlay = $('#overlay').show(); // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
-		if(this.checkForWin(true)){ // if the game is won
+		if(this.checkForWin()){ // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
 			$(overlay).hide().addClass('win'); // add the class of win
-		} else { 
+		} else {  
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
 			//gameOverScreen.textContent = "try again dude";
-			$(overlay).addClass('lose');// add  class lose
+			$(overlay).hide().addClass('lose');// add  class lose
 		}
 	}
 	handleInteraction(button) {
@@ -76,8 +76,31 @@ class Game {
 			$(button.target).addClass('chosen'); // adds chosen class
 			$(button.target).attr('disabled', true); // disables the clicked button
 			game.activePhrase.showMatchedLetter($(button.target).text() ); // calls the showMatchedLetter function
-            game.checkForWin();
+            game.checkForWin(true);
             game.gameOver(true); // checks for win
 		}
 	}
 }
+    
+	//	resetGame(){
+  
+			// const boardPhrase =  $('#ul').removeClass('.letter');
+			// $(boardPhrase).each();
+			// this.$(button.target).removeClass('wrong')
+			// $(button.target).removeClass('chosen')
+			// this.missed = 0;
+			// [this.missed].src = 'images/lostHeart.png';
+	        // this.$('.tries img').attr('src','images/liveHeart.png');
+            // $('phrase ul li').remove();
+			// const previousSelectionsRemoved = $('#phrase ul');
+			// this.$(previousSelections).remove();
+   
+ 
+  //}
+    
+        
+    
+    
+	
+    
+//}
