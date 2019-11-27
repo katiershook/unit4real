@@ -38,7 +38,8 @@ class Game {
 		const correctPhrase = $('.letter').length; // length of the phrase
 		const guessedLetters = $('.show').length; { /// length of the guessed letters 
 			if (correctPhrase === guessedLetters)
-				//{ // compares the two
+                //{ // compares the two
+               { this.gameOver(true)}
 				return true;
 		}  
 	}
@@ -56,9 +57,9 @@ class Game {
 	gameOver(gameWon) {
 		const overlay = $('#overlay').show(); // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
-		if(game.checkForWin()){ // if the game is won
+		if(this.checkForWin(true)){ // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
-			$(overlay).addClass('win'); // add the class of win
+			$(overlay).hide().addClass('win'); // add the class of win
 		} else { 
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
 			//gameOverScreen.textContent = "try again dude";
@@ -76,7 +77,7 @@ class Game {
 			$(button.target).attr('disabled', true); // disables the clicked button
 			game.activePhrase.showMatchedLetter($(button.target).text() ); // calls the showMatchedLetter function
             game.checkForWin();
-            //game.gameOver(); // checks for win
+            game.gameOver(true); // checks for win
 		}
 	}
 }
