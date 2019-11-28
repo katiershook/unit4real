@@ -39,43 +39,44 @@ class Game {
 			if (correctPhrase === guessedLetters){
                 //{ // compares the two
 				this.gameOver(true)
-				//return;
+				return true;
+				//game.gameOver(true)
 		}  
 	}}
 	
 	removeLife() {
 		this.missed += 1; // counter
 		const lives = $('.tries img'); // selects the images from the tries class
-		{
-			lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subtract one. Shoutout to ernie the dog on this one ahha.
-		}
-		if (this.missed === 5) { /// if there are 5 incorrect guess 
-			this.gameOver(); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
-		}
+		
+		lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subtract one. Shoutout to ernie the dog on this one ahha.
+		
+		if(this.missed === 5) { /// if there are 5 incorrect guess 
+			this.gameOver('astring'); }// trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
+		//this.checkForWin(false);
 	}
 	gameOver(gameWon) {
-		const overlay = $('#overlay'); // variable to show the overlay when called
+		const overlay = $('#overlay') // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
-		if(this.checkForWin()){ // if the game is won
-			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
-			$(overlay).hide().addClass('.win'); // add the class of win
+		if(game.checkForWin() === true){ // if the game is won
+			$(gameOverScreen).text('winner winner chicken dinner'); 
+			//gameOverScreen.textContent = "winner winner chicken dinner";
+			$(overlay).show().addClass('win'); // add the class of win
 		} else {  
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
 			//gameOverScreen.textContent = "try again dude";
-			$(overlay).hide().addClass('.lose');// add  class lose
+			$(overlay).show().addClass('lose');// add  class lose
 		}
 	}
 	handleInteraction(button){
 		const clickedLetter = game.activePhrase.checkLetter($(button.target).text()) // text content of the letter clicked in checkLetter
 		if (!clickedLetter) { // if checkletter is not true
-			$(button.target).addClass('wrong') // adds class wront to the selected button
-			game.removeLife(); // removes a life
-			$(button.target).attr('disabled', true); // disables the button clicked
+			$(button.target).addClass('wrong').attr('disabled', true);// adds class wront to the selected button
+			game.removeLife(false); // removes a life
+		; // disables the button clicked
 		} else {
-			$(button.target).addClass('chosen'); // adds chosen class
-			$(button.target).attr('disabled', true); // disables the clicked button
+			$(button.target).addClass('chosen').attr('disabled', true); // disables the clicked button 
 			game.activePhrase.showMatchedLetter($(button.target).text()); // calls the showMatchedLetter function
-            game.checkForWin(true);
+            game.checkForWin();
            // game.gameOver(true); // checks for win
 		}
 	}
