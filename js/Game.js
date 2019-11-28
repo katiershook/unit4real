@@ -57,7 +57,7 @@ class Game {
 	gameOver(gameWon) {
 		const overlay = $('#overlay') // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
-		if(game.checkForWin() === true){ // if the game is won
+		if(gameWon === true){ // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner'); 
 			//gameOverScreen.textContent = "winner winner chicken dinner";
 			$(overlay).show().addClass('win'); // add the class of win
