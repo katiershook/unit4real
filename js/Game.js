@@ -1,4 +1,3 @@
-
 class Game {
 	constructor() {
 		this.missed = 0;
@@ -37,12 +36,12 @@ class Game {
 		// create two variables and compare them. one for the letter.length and show.length
 		const correctPhrase = $('.letter').length; // length of the phrase
 		const guessedLetters = $('.show').length; { /// length of the guessed letters 
-			if (correctPhrase === guessedLetters)
+			if (correctPhrase === guessedLetters){
                 //{ // compares the two
-               { this.gameOver()}
-				return true;
+				this.gameOver(true)
+				//return;
 		}  
-	}
+	}}
 	
 	removeLife() {
 		this.missed += 1; // counter
@@ -51,22 +50,22 @@ class Game {
 			lives[this.missed - 1].src = 'images/lostHeart.png'; // uses bracket notation to access the propertiess and subtract one. Shoutout to ernie the dog on this one ahha.
 		}
 		if (this.missed === 5) { /// if there are 5 incorrect guess 
-			this.gameOver(true); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
+			this.gameOver(); // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
 		}
 	}
 	gameOver(gameWon) {
-		const overlay = $('#overlay').show(); // variable to show the overlay when called
+		const overlay = $('#overlay'); // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
 		if(this.checkForWin()){ // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner'); //gameOverScreen.textContent = "winner winner chicken dinner";
-			$(overlay).hide().addClass('win'); // add the class of win
+			$(overlay).hide().addClass('.win'); // add the class of win
 		} else {  
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
 			//gameOverScreen.textContent = "try again dude";
-			$(overlay).hide().addClass('lose');// add  class lose
+			$(overlay).hide().addClass('.lose');// add  class lose
 		}
 	}
-	handleInteraction(button) {
+	handleInteraction(button){
 		const clickedLetter = game.activePhrase.checkLetter($(button.target).text()) // text content of the letter clicked in checkLetter
 		if (!clickedLetter) { // if checkletter is not true
 			$(button.target).addClass('wrong') // adds class wront to the selected button
@@ -75,13 +74,12 @@ class Game {
 		} else {
 			$(button.target).addClass('chosen'); // adds chosen class
 			$(button.target).attr('disabled', true); // disables the clicked button
-			game.activePhrase.showMatchedLetter($(button.target).text() ); // calls the showMatchedLetter function
+			game.activePhrase.showMatchedLetter($(button.target).text()); // calls the showMatchedLetter function
             game.checkForWin(true);
-            game.gameOver(true); // checks for win
+           // game.gameOver(true); // checks for win
 		}
 	}
 }
-    
 	//	resetGame(){
   
 			// const boardPhrase =  $('#ul').removeClass('.letter');
