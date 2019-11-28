@@ -37,9 +37,7 @@ class Phrase {
 		$.each(matchedLetters, function(i, value) { // goes through  each individual letter
 			if (letter === matchedLetters[i].innerText) { // checks for match against the selected letters inner html
 				$(matchedLetters[i]).addClass('show') // creates a class to show 
-       // $(this).addClass('hide');
-       // game.gameOver(true); 
-       // game.checkForWin();// removes a class that hides 
+     
 			}
 		})
 	}
