@@ -32,11 +32,11 @@ class Game {
 		this.activePhrase.addPhraseToDisplay();
 	};
 	resetGame() {
-		$('#phrase ul').empty();
-		$('.key').removeClass('chosen');
-		$('.key').removeClass('wrong');
-		$('.key').removeAttr('disabled');
-		$('.tries img').attr('src', 'images/liveHeart.png');
+		$('#phrase ul').empty();// removes the previos phrase from the baord
+		$('.key').removeClass('chosen'); // removes the color from the guessed letters
+		$('.key').removeClass('wrong');//removes the color from the guessed letters
+		$('.key').removeAttr('disabled'); // removes the disabled attr from the keyboard 
+		$('.tries img').attr('src', 'images/liveHeart.png'); // add the live hearts back to the board
 	}
 	//checkForWin()
 	//handleInteraction();
@@ -59,18 +59,18 @@ class Game {
 		if (this.missed === 5) { /// if there are 5 incorrect guess 
 			this.gameOver('astring');
 		} // trigger the game over function. When gameOver is activated it tells it it's a string // learned about this froma friend 
-		//this.checkForWin(false);
+		
 	}
 	gameOver(gameWon) {
 		const overlay = $('#overlay') // variable to show the overlay when called
 		const gameOverScreen = $('#game-over-message'); // game over message variable
 		if (gameWon === true) { // if the game is won
 			$(gameOverScreen).text('winner winner chicken dinner');
-			//gameOverScreen.textContent = "winner winner chicken dinner";
+		
 			$(overlay).show().addClass('win'); // add the class of win
 		} else {
 			$(gameOverScreen).text('try again dude'); // game lost add he text content "try again dude"
-			//gameOverScreen.textContent = "try again dude";
+			
 			$(overlay).show().addClass('lose'); // add  class lose
 		}
 	}

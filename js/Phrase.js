@@ -23,25 +23,20 @@ class Phrase {
 		}
 	}
 	checkLetter(letter) { // create variable to check the phrase for letters
-		 let splitArray = this.phrase.split('');
-    const checkLetter = this.phrase.includes(letter);
-    //showMatchedLetter();
-		 
-		
-		
+		let splitArray = this.phrase.split('');
+		const checkLetter = this.phrase.includes(letter);
+		//showMatchedLetter();
 		return checkLetter;
 	}
 	showMatchedLetter(letter) {
 		// gets the value of the active phrase by using class.
-		const matchedLetters = $('.letter');// variable for letter class
+		const matchedLetters = $('.letter'); // variable for letter class
 		$.each(matchedLetters, function(i, value) { // goes through  each individual letter
 			if (letter === matchedLetters[i].innerText) { // checks for match against the selected letters inner html
 				$(matchedLetters[i]).addClass('show') // creates a class to show 
-     
 			}
 		})
 	}
 }
-        
         
             
